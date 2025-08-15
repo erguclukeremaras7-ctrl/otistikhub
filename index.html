@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OtistikHub Cumhuriyeti - Ana Sayfa</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Arial',sans-serif;background:#eef2f6;color:#222;line-height:1.6;}
+header{background:linear-gradient(90deg,#002b5c,#014f86);color:white;text-align:center;padding:60px 20px;position:relative;overflow:hidden;}
+header h1{font-size:3em;animation:fadeIn 2s;}
+header p{font-size:1.2em;margin-top:10px;animation:fadeIn 3s;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+nav{display:flex;flex-wrap:wrap;justify-content:center;background:#014f86;box-shadow:0 3px 10px rgba(0,0,0,0.2);}
+nav a{color:white;padding:15px 20px;font-weight:bold;transition:0.3s;}
+nav a:hover{background:#cfa43b;color:#002b5c;transform:scale(1.1);}
+.hero{text-align:center;padding:50px 20px;background:white;margin:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+.duyurular{max-width:1000px;margin:30px auto;padding:20px;}
+.carousel{display:flex;overflow-x:auto;scroll-behavior:smooth;gap:20px;}
+.slide{min-width:300px;background:white;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:0.3s;}
+.slide:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+footer{background:#002b5c;color:white;text-align:center;padding:20px 0;margin-top:50px;box-shadow:0 -3px 10px rgba(0,0,0,0.2);}
+</style>
+</head>
+<body>
+<header>
+<h1>OtistikHub Cumhuriyeti</h1>
+<p>Birlik • İlerleme • Adalet • Dijital İnovasyon</p>
+</header>
+
+<nav>
+<a href="index.html">Ana Sayfa</a>
+<a href="anayasa.html">Anayasa</a>
+<a href="bakanliklar.html">Bakanlıklar</a>
+<a href="yonetim.html">Yönetim Kadrosu</a>
+<a href="haberler.html">Haberler</a>
+<a href="projeler.html">Projeler</a>
+<a href="kararlar.html">Meclis Kararları</a>
+<a href="ozelgunler.html">Özel Günler</a>
+<a href="etkinlik.html">Etkinlik Takvimi</a>
+<a href="vatandaslik.html">Sanal Vatandaşlık</a>
+<a href="iletisim.html">İletişim</a>
+</nav>
+
+<section class="hero">
+<h2>Resmî Devlet Portalına Hoş Geldiniz</h2>
+<p>OtistikHub Cumhuriyeti’nin tüm dijital bakanlıklarına ve projelerine bu portal üzerinden ulaşabilirsiniz.</p>
+</section>
+
+<section class="duyurular">
+<h2>Güncel Duyurular</h2>
+<div class="carousel">
+<div class="slide">Portal resmî olarak açıldı! Tüm vatandaşlarımız dijital bakanlıklara erişebilir.</div>
+<div class="slide">Yeni yazılım projeleri bakanlıklar tarafından yayınlandı.</div>
+<div class="slide">1 Mart – Kod Günü yaklaşıyor. Kutlamalar dijital platformlarda olacak.</div>
+</div>
+</section>
+
+<footer>
+&copy; 2025 OtistikHub Cumhuriyeti. Tüm hakları saklıdır.
+</footer>
+
+<script>
+const carousel=document.querySelector('.carousel');
+let isDown=false,startX,scrollLeft;
+carousel.addEventListener('mousedown',e=>{isDown=true;startX=e.pageX-carousel.offsetLeft;scrollLeft=carousel.scrollLeft;});
+carousel.addEventListener('mouseleave',()=>isDown=false);
+carousel.addEventListener('mouseup',()=>isDown=false);
+carousel.addEventListener('mousemove',e=>{if(!isDown) return;e.preventDefault();const x=e.pageX-carousel.offsetLeft;const walk=(x-startX)*2;carousel.scrollLeft=scrollLeft-walk;});
+</script>
+</body>
+</html>
